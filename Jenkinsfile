@@ -20,6 +20,5 @@ node {
     stage('Application_Functional_Testing') {
 	sleep(time:60,unit:"SECONDS")
 	sh 'mvn -Dfilename=testng-functional.xml surefire:test'
-	step([$class: 'Publisher'])
     }
 }
