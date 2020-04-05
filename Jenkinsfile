@@ -6,7 +6,7 @@ node {
         sh 'mvn clean package -DskipTests'
     }    
     stage('Application_Unit_Test') {        
-        sh 'mvn -Dfilename=testng-unit.xml compiler:testCompile surefire:test'
+        sh 'mvn -Dfilename=testng-unit.xml surefire:test'
         step([$class: 'Publisher'])
     }    
     stage('Application_Code_Analysis') {        
@@ -19,7 +19,7 @@ node {
     }    
     stage('Application_Functional_Testing') {
 	sleep(time:60,unit:"SECONDS")
-	sh 'mvn clean -Dfilename=testng-functional.xml test'
+	sh 'mvn -Dfilename=testng-functional.xml surefire:test'
 	step([$class: 'Publisher'])
     }
 }
