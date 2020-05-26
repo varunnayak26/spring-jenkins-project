@@ -35,7 +35,7 @@ public class TestHomeController {
 	public void testHomeGreeting() {
 		hc = new HomeController();
 		ModelAndView mv = hc.home();
-		Assert.assertEquals("Welcome to Just Enough Jenkins Training!", mv.getModelMap().get("greeting"), "Greeting Missing!");
+		Assert.assertEquals("Welcome again!", mv.getModelMap().get("greeting"), "Greeting Missing!");
 	}
 
 	@AfterClass
